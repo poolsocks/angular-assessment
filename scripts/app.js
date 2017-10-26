@@ -1,28 +1,34 @@
-angular.module("devApp", [ui.router])
-.config(function($stateProvider, $urlRouterProvider) {
+angular.module("devApp", ['ui.router'])
+    .config(function($stateProvider, $urlRouterProvider) {
 
-$urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise('/')
 
-  $stateProvider
-    .state("home", {
-      url: "/",
-      controller: "homeCtrl",
-      templateUrl: "/views/home.html"
-    })
-    .state("blog", {
-      url: "/blog",
-      controller: "blog",
-      templateUrl: "/views/blog.html"
-    })
-    .state("about", {
-      url: "/about",
-      controller: "detailsCtrl",
-      templateUrl: "/views/about.html"
-    })
-    .state("shop", {
-      url: "/shop",
-      controller: "detailsCtrl",
-      templateUrl: "/views/shop.html"
-    })
+        $stateProvider
 
-});
+            .state('home', {
+                url: '/',
+                templateUrl: 'views/home.html'
+            })
+
+            .state('about', {
+                url: '/about',
+                templateUrl: 'views/about.html'
+            })
+
+            .state('blog', {
+                url: '/blog',
+                templateUrl: 'views/blog.html'
+            })
+
+            .state('shop', {
+                url: '/shop',
+                templateUrl: 'views/shop.html',
+                controller: 'shopCtrl'
+            })
+
+            .state('product-details', {
+                url: '/product-details/:id',
+                templateUrl: 'views/product-details.html',
+                controller: 'productDetailsCtrl'
+            })
+    })
